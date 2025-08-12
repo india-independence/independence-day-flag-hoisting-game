@@ -1,0 +1,554 @@
+/* CSS Custom Properties for Enhanced Design System */
+:root {
+  --saffron: #FF9933;
+  --white: #FFFFFF;
+  --green: #138808;
+  --navy: #000080;
+  
+  /* Microsoft Color Palette Integration */
+  --microsoft-blue: #0078D4;
+  --microsoft-teal: #00BCF2;
+  --microsoft-green: #10893E;
+  --microsoft-orange: #FFB900;
+  --microsoft-purple: #5C2E91;
+  
+  --celebration-gold: #FFD700;
+  --gradient-bg: linear-gradient(135deg, #FF9933 0%, #FFFFFF 50%, #138808 100%);
+  --microsoft-accent: linear-gradient(45deg, var(--microsoft-blue), var(--microsoft-teal));
+  --card-shadow: 0 8px 32px rgba(0, 120, 212, 0.1);
+  --border-radius: 16px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--gradient-bg);
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.6;
+}
+
+#app {
+  width: 100vw;
+  max-width: 420px;
+  min-height: 100vh;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+/* Screen Management */
+.screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.hidden { 
+  display: none; 
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.microsoft-logo {
+  max-width: 200px;
+  max-height: 80px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
+  display: block;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: #34495e;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.hero-description {
+  font-size: 1rem;
+  color: #5d6d7e;
+  margin-bottom: 0;
+  font-style: italic;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Instruction Steps */
+.instruction-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 300px;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+}
+
+.step:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.step-number {
+  font-size: 1.5rem;
+  min-width: 2rem;
+}
+
+.step-text {
+  font-size: 1rem;
+  color: #2c3e50;
+  font-weight: 500;
+}
+#leaderboard {
+  margin-top: 24px;
+  width: 100%;
+  background: #f3f6fc;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+/* Form Elements */
+input[type="text"] {
+  font-size: 1.1rem;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  border: 2px solid #e1e5e9;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  max-width: 300px;
+  box-sizing: border-box;
+  transition: var(--transition);
+  font-family: inherit;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--microsoft-blue);
+  box-shadow: 0 0 0 3px rgba(0, 120, 212, 0.1);
+}
+
+input[type="text"]::placeholder {
+  color: #999;
+}
+
+/* Buttons */
+.primary-button {
+  background: linear-gradient(135deg, var(--microsoft-blue), #005a9f);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 16px rgba(0, 120, 212, 0.3);
+  margin: 0.5rem;
+  min-height: 44px; /* Touch accessibility */
+  font-family: inherit;
+}
+
+.primary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 120, 212, 0.4);
+}
+
+.primary-button:active {
+  transform: translateY(0);
+}
+
+.secondary-button {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--microsoft-blue);
+  border: 2px solid var(--microsoft-blue);
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  margin: 0.5rem;
+  min-height: 44px;
+  font-family: inherit;
+}
+
+.secondary-button:hover {
+  background: var(--microsoft-blue);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Game Controls */
+.game-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.hoist-button {
+  background: linear-gradient(135deg, var(--saffron), #e85a00);
+  color: white;
+  border: none;
+  border-radius: 16px;
+  padding: 1.5rem 3rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 6px 24px rgba(255, 153, 51, 0.4);
+  margin: 0;
+  min-height: 44px;
+  font-family: inherit;
+  position: relative;
+  transform: translateZ(0); /* Create stacking context to prevent shifts */
+}
+
+.hoist-button:hover {
+  transform: translateY(-3px) translateZ(0);
+  box-shadow: 0 8px 30px rgba(255, 153, 51, 0.5);
+}
+
+.hoist-button:active {
+  transform: translateY(-1px) translateZ(0);
+}
+
+.hoist-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: translateZ(0);
+  box-shadow: 0 4px 16px rgba(255, 153, 51, 0.2);
+}
+/* Game Screen */
+.game-header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.game-header h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+
+.game-instruction {
+  font-size: 1.1rem;
+  color: #666;
+  margin: 0;
+}
+
+.status-text {
+  font-size: 1rem;
+  color: var(--microsoft-blue);
+  font-weight: 600;
+  margin-top: 1rem;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Flag Container */
+.flag-container {
+  position: relative;
+  margin: 1rem 0;
+  width: min(90vw, 400px);
+  height: min(75vh, 550px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#flag-canvas {
+  display: block;
+  margin: 0 auto;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  max-width: 400px;
+  max-height: 550px;
+  border-radius: 8px;
+  z-index: 2;
+}
+
+.flagpole {
+  position: absolute;
+  left: 30%;
+  transform: translateX(-30%);
+  top: 2%;
+  width: 6px;
+  height: 96%;
+  background: linear-gradient(180deg, #c0c0c0 0%, #808080 100%);
+  border-radius: 3px;
+  z-index: 1;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.pedestal {
+  position: absolute;
+  left: 30%;
+  transform: translateX(-50%);
+  bottom: 2%;
+  width: 50px;
+  height: 10px;
+  background: linear-gradient(135deg, #d4af37, #b8941f);
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+/* Create 3-step pedestal using pseudo-elements */
+/* Step 1 (Top/Smallest) - using main element already defined above */
+
+/* Step 2 (Middle) */
+.pedestal::before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: -5px;
+  width: 60px;
+  height: 10px;
+  background: linear-gradient(135deg, #d4af37, #b8941f);
+  border-radius: 0 0 6px 6px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Step 3 (Bottom/Widest) */
+.pedestal::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: -10px;
+  width: 70px;
+  height: 10px;
+  background: linear-gradient(135deg, #d4af37, #b8941f);
+  border-radius: 0 0 7px 7px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+/* Result Screen */
+.celebration-header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.celebration-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 1rem;
+}
+
+.celebration-message {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+.inspirational-quote {
+  font-size: 1rem;
+  color: #666;
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
+
+.gif-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0.75rem 0;
+}
+
+.celebration-gif {
+  max-width: 90%;
+  max-height: 200px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 300px;
+}
+/* Confetti Animation */
+#confetti {
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0;
+  pointer-events: none;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -10px;
+  width: 8px;
+  height: 16px;
+  border-radius: 3px;
+  opacity: 0.9;
+  animation: confetti-fall 3s ease-out forwards;
+}
+
+@keyframes confetti-fall {
+  0% { 
+    transform: translateY(-40px) rotate(0deg); 
+    opacity: 1;
+  }
+  100% { 
+    transform: translateY(120vh) rotate(720deg); 
+    opacity: 0; 
+  }
+}
+
+/* Microsoft Narrative Styling */
+.microsoft-narrative {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Entrance Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  #app {
+    max-width: 100vw;
+    border-radius: 0;
+    padding: 1.5rem 1rem;
+    min-height: 100vh;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .microsoft-logo {
+    max-width: 150px;
+    max-height: 60px;
+  }
+  
+  .flag-container {
+    width: 95vw;
+    height: min(65vh, 450px);
+  }
+  
+  .flagpole {
+    width: 4px;
+    height: 95%;
+    top: 2%;
+    left: 30%;
+    transform: translateX(-50%);
+  }
+  
+  .pedestal {
+    left: 30%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 8px;
+    bottom: 2%;
+  }
+  
+  .instruction-steps {
+    max-width: 100%;
+  }
+  
+  .step {
+    padding: 0.75rem;
+  }
+  
+  .hoist-button {
+    padding: 1.2rem 2rem;
+    font-size: 1.1rem;
+  }
+  
+  .action-buttons {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 320px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .microsoft-logo {
+    max-width: 120px;
+    max-height: 50px;
+  }
+  
+  .step-text {
+    font-size: 0.9rem;
+  }
+  
+  .primary-button, .secondary-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}

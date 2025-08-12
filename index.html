@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Independence Day Flag Hoisting Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Welcome screen with context -->
+    <div id="welcome-screen" class="screen">
+      <div class="hero-section">
+        <h2 class="hero-title">Celebrating the freedom to innovate</h2>
+        <img src="Microsoft-Logo.png" alt="Microsoft Logo" class="microsoft-logo" />
+      </div>
+      <div class="instruction-steps">
+        <div class="step">
+          <span class="step-text">Enter your name</span>
+        </div>
+        <div class="step">
+          <span class="step-text">Press "Begin Celebration" button</span>
+        </div>
+      </div>
+      <input type="text" id="player-name" placeholder="Enter your name" maxlength="25" />
+      <button id="start-btn" class="primary-button">Begin Celebration 🚀</button>
+    </div>
+    <!-- Game screen -->
+    <div id="game-screen" class="screen hidden">
+      <div class="game-header">
+        <h2>Ready to Hoist the Flag?</h2>
+        <p class="game-instruction">Click the button below and watch the tricolor rise with pride!</p>
+      </div>
+      <div class="flag-container">
+        <canvas id="flag-canvas" width="300" height="200"></canvas>
+        <div class="flagpole"></div>
+        <div class="pedestal"></div>
+      </div>
+      <div class="game-controls">
+        <button id="hoist-btn" class="hoist-button">Hoist Our Flag</button>
+        <div id="animation-status" class="status-text hidden">Hoisting flag with pride...</div>
+      </div>
+    </div>
+    <!-- Result screen -->
+    <div id="result-screen" class="screen hidden">
+      <div id="confetti"></div>
+      <div class="celebration-header">
+        <h2 class="celebration-title">Happy Independence Day! 🎉</h2>
+        <div id="result-message" class="celebration-message"></div>
+        <div id="inspirational-quote" class="inspirational-quote"></div>
+      </div>
+      
+      <div id="celebration-gif-container" class="gif-container">
+        <img id="celebration-gif" alt="Independence Day Celebration" class="celebration-gif" />
+      </div>
+      
+      <div class="action-buttons">
+        <button id="share-btn" class="primary-button">Share on LinkedIn 📱</button>
+        <button id="play-again-btn" class="secondary-button">Celebrate Again 🔄</button>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
