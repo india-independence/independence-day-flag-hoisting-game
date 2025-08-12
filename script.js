@@ -389,34 +389,23 @@ class IndependenceDayExperience {
   }
   
   shareExperience() {
+    const shareMessagesEnd = "Feel free to invite your friends to celebrate by clicking here https://aka.ms/FlagHoistGame";
     // Updated sharing messages for Independence Day celebration
     const shareMessages = [
-      `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to think big. \n\n#IndependenceDay2025 #FreedomToThinkBig`,
-      
-      `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to innovate without boundaries. \n\n#IndependenceDay2025 #FreedomToInnovate`,
-      
-      `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to turn ideas into impact. \n\n#IndependenceDay2025 #FreedomToImpact`,
-      
-      `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to learn, unlearn, and grow. \n\n#IndependenceDay2025 #FreedomToLearn`,
-      
-      `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to question, explore, and improve. \n\n#IndependenceDay2025 #FreedomToQuestion`,
-      
-      `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to explore new possibilities. \n\n#IndependenceDay2025 #FreedomToExplore`,
-      
-      `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to design solutions that matter. \n\n#IndependenceDay2025 #FreedomToDesign`,
-      
-      `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to reimagine the future. \n\n#IndependenceDay2025 #FreedomToReimagine`,
-      
-      `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to turn challenges into opportunities. \n\n#IndependenceDay2025 #FreedomToTransform`,
-      
-      `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to push beyond comfort zones. \n\n#IndependenceDay2025 #FreedomToPush`,
-      
-      `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to make a difference through innovation. \n\n#IndependenceDay2025 #FreedomToInnovate`,
-      
-      `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to think differently and act boldly. \n\n#IndependenceDay2025 #FreedomToThink`,
-      
-      `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to grow without limits. \n\n#IndependenceDay2025 #FreedomToGrow`
-    ];
+    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to think big. \n\n${shareMessagesEnd}\n\n#IndependenceDay2025 #FreedomToThinkBig`,
+    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to innovate without boundaries. \n\n${shareMessagesEnd}\n\n#IndependenceDay2025 #FreedomToInnovate`,
+    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to turn ideas into impact. \n\n${shareMessagesEnd}\n\n#IndependenceDay2025 #FreedomToImpact`,
+    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to learn, unlearn, and grow. \n\n${shareMessagesEnd}\n\n#IndependenceDay2025 #FreedomToLearn`,
+    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to question, explore, and improve. \n\n${shareMessagesEnd}\n\n#IndependenceDay2025 #FreedomToQuestion`,
+    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to explore new possibilities. \n\n${shareMessagesEnd}\n\n#IndependenceDay2025 #FreedomToExplore`,
+    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to design solutions that matter. \n\n${shareMessagesEnd}\n\n#IndependenceDay2025 #FreedomToDesign`,
+    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to reimagine the future. \n\n${shareMessagesEnd}\n\n#IndependenceDay2025 #FreedomToReimagine`,
+    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to turn challenges into opportunities. \n\n${shareMessagesEnd}\n\n#IndependenceDay2025 #FreedomToTransform`,
+    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to push beyond comfort zones. \n\n${shareMessagesEnd}\n\n#IndependenceDay2025 #FreedomToPush`,
+    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to make a difference through innovation. \n\n${shareMessagesEnd}\n\n#IndependenceDay2025 #FreedomToInnovate`,
+    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to think differently and act boldly. \n\n${shareMessagesEnd}\n\n#IndependenceDay2025 #FreedomToThink`,
+    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to grow without limits. \n\n${shareMessagesEnd}\n\n#IndependenceDay2025 #FreedomToGrow`
+  ];
     
     const randomShareMessage = this.getRandomMessage(shareMessages);
     const personalizedMessage = randomShareMessage.replace('{name}', this.playerName);
