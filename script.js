@@ -10,16 +10,33 @@ class IndependenceDayExperience {
     // Enhanced celebration GIFs with cultural elements
     this.celebrationGifs = [
       {
+        type: 'giphy',
         url: 'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbWVpNThnNmVmZHExMXE3Z2ttNjExd3RqZHF1am83eXJzdnI5ZjBvMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/oUjv1KgOwiLkY/giphy.gif',
         caption: 'Indian Flag Flying High'
       },
       {
+        type: 'giphy',
         url: 'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcTZkNGtkZ3Q0Nmk4a2o3MHRqdGJsbGtlMmwwMDZpcnVsZmJzdTRpdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/046dzvP98tMoXFwWPV/giphy.gif',
         caption: 'Happy Independence Day'
       },
       {
+        type: 'giphy',
         url: 'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHQ0OHBpMmt2eTF4YmJ2cnVqMXBwbjNqN2J1d3RoY3dlcDJqYjJ2cyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fx0fyZlGSSkr8qWtG3/giphy.gif',
         caption: 'Independence Day Celebration'
+      },
+      {
+        type: 'tenor',
+        postId: '14363182',
+        aspectRatio: '1.17197',
+        url: 'https://tenor.com/view/%E0%A4%B8%E0%A5%8D%E0%A4%B5%E0%A4%A4%E0%A4%82%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%A4%E0%A4%BE-%E0%A4%A6%E0%A4%BF%E0%A4%B5%E0%A4%B8-%E0%A4%95%E0%A5%80-%E0%A4%B6%E0%A5%81%E0%A4%AD%E0%A4%95%E0%A4%BE%E0%A4%AE%E0%A4%A8%E0%A4%BE%E0%A4%8F%E0%A4%82-%E0%A4%AD%E0%A4%BE%E0%A4%B0%E0%A4%A4%E0%A5%80%E0%A4%AF-gif-14363182',
+        caption: 'स्वतंत्रता दिवस की शुभकामनाएं'
+      },
+      {
+        type: 'tenor',
+        postId: '22364711',
+        aspectRatio: '1.0356',
+        url: 'https://tenor.com/view/happy-indian-independence-day-august15th-15th-august-india-indian-gif-22364711',
+        caption: 'Happy Indian Independence Day August 15th GIF'
       }
     ];
     
@@ -338,18 +355,75 @@ class IndependenceDayExperience {
     
     // Set random celebration GIF with enhanced error handling
     this.currentGif = this.getRandomMessage(this.celebrationGifs);
-    this.celebrationGif.src = this.currentGif.url;
-    this.celebrationGif.alt = this.currentGif.caption;
-    
-    // Enhanced GIF loading with fallback strategy
-    this.celebrationGif.onerror = () => {
-      // Fallback to enhanced SVG if GIF fails
-      const fallbackGif = this.celebrationGifs[this.celebrationGifs.length - 1];
-      this.celebrationGif.src = fallbackGif.url;
-    };
+    this.setupGifDisplay(this.currentGif);
     
     // Launch enhanced confetti with Microsoft colors
     this.launchConfetti();
+  }
+  
+  setupGifDisplay(gifData) {
+    const gifContainer = this.celebrationGif.parentElement;
+    
+    // Clear any existing content
+    gifContainer.innerHTML = '';
+    
+    if (gifData.type === 'giphy') {
+      // Handle Giphy GIFs with regular img tag
+      const img = document.createElement('img');
+      img.src = gifData.url;
+      img.alt = gifData.caption;
+      img.id = 'celebration-gif';
+      img.style.maxWidth = '100%';
+      img.style.height = 'auto';
+      img.style.borderRadius = '10px';
+      
+      img.onerror = () => {
+        // Fallback to a working Giphy GIF if this one fails
+        const fallbackGif = this.celebrationGifs.find(gif => gif.type === 'giphy');
+        if (fallbackGif && fallbackGif !== gifData) {
+          img.src = fallbackGif.url;
+        }
+      };
+      
+      gifContainer.appendChild(img);
+      
+    } else if (gifData.type === 'tenor') {
+      // Handle Tenor GIFs with embed code
+      const tenorDiv = document.createElement('div');
+      tenorDiv.className = 'tenor-gif-embed';
+      tenorDiv.setAttribute('data-postid', gifData.postId);
+      tenorDiv.setAttribute('data-share-method', 'host');
+      tenorDiv.setAttribute('data-aspect-ratio', gifData.aspectRatio);
+      tenorDiv.setAttribute('data-width', '100%');
+      tenorDiv.style.maxWidth = '400px';
+      tenorDiv.style.margin = '0 auto';
+      
+      // Create fallback link inside the div
+      const link = document.createElement('a');
+      link.href = gifData.url;
+      link.textContent = gifData.caption;
+      link.target = '_blank';
+      tenorDiv.appendChild(link);
+      
+      gifContainer.appendChild(tenorDiv);
+      
+      // Load Tenor embed script if not already loaded
+      this.loadTenorScript();
+    }
+    
+    // Update reference for sharing
+    this.celebrationGif = gifContainer.querySelector('img') || gifContainer.querySelector('.tenor-gif-embed');
+  }
+  
+  loadTenorScript() {
+    // Check if Tenor script is already loaded
+    if (!document.querySelector('script[src*="tenor.com/embed.js"]')) {
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.async = true;
+      script.src = 'https://tenor.com/embed.js';
+      document.head.appendChild(script);
+    }
   }
   
   getRandomMessage(array) {
@@ -381,32 +455,41 @@ class IndependenceDayExperience {
   }
   
   shareExperience() {
-    const shareMessagesEnd = "Feel free to invite your friends to celebrate by clicking here https://aka.ms/FlagHoistGame";
+    const shareMessagesEnd = "Feel free to invite your friends to celebrate by clicking here https://aka.ms/FlagHoistGame\n\n#IndependenceDay2025 #FreedomToInnovate #VibeCoding";
     // Updated sharing messages for Independence Day celebration
     const shareMessages = [
-    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to think big. \n\n${shareMessagesEnd}\n\n#IndependenceDay2025 #FreedomToThinkBig`,
-    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to innovate without boundaries. \n\n${shareMessagesEnd}\n\n#IndependenceDay2025 #FreedomToInnovate`,
-    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to turn ideas into impact. \n\n${shareMessagesEnd}\n\n#IndependenceDay2025 #FreedomToImpact`,
-    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to learn, unlearn, and grow. \n\n${shareMessagesEnd}\n\n#IndependenceDay2025 #FreedomToLearn`,
-    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to question, explore, and improve. \n\n${shareMessagesEnd}\n\n#IndependenceDay2025 #FreedomToQuestion`,
-    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to explore new possibilities. \n\n${shareMessagesEnd}\n\n#IndependenceDay2025 #FreedomToExplore`,
-    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to design solutions that matter. \n\n${shareMessagesEnd}\n\n#IndependenceDay2025 #FreedomToDesign`,
-    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to reimagine the future. \n\n${shareMessagesEnd}\n\n#IndependenceDay2025 #FreedomToReimagine`,
-    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to turn challenges into opportunities. \n\n${shareMessagesEnd}\n\n#IndependenceDay2025 #FreedomToTransform`,
-    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to push beyond comfort zones. \n\n${shareMessagesEnd}\n\n#IndependenceDay2025 #FreedomToPush`,
-    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to make a difference through innovation. \n\n${shareMessagesEnd}\n\n#IndependenceDay2025 #FreedomToInnovate`,
-    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to think differently and act boldly. \n\n${shareMessagesEnd}\n\n#IndependenceDay2025 #FreedomToThink`,
-    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to grow without limits. \n\n${shareMessagesEnd}\n\n#IndependenceDay2025 #FreedomToGrow`
+    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to think big. \n\n${shareMessagesEnd}`,
+    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to innovate without boundaries. \n\n${shareMessagesEnd}`,
+    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to turn ideas into impact. \n\n${shareMessagesEnd}`,
+    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to learn, unlearn, and grow. \n\n${shareMessagesEnd}`,
+    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to question, explore, and improve. \n\n${shareMessagesEnd}`,
+    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to explore new possibilities. \n\n${shareMessagesEnd}`,
+    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to design solutions that matter. \n\n${shareMessagesEnd}`,
+    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to reimagine the future. \n\n${shareMessagesEnd}`,
+    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to turn challenges into opportunities. \n\n${shareMessagesEnd}`,
+    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to push beyond comfort zones. \n\n${shareMessagesEnd}`,
+    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to make a difference through innovation. \n\n${shareMessagesEnd}`,
+    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to think differently and act boldly. \n\n${shareMessagesEnd}`,
+    `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to grow without limits. \n\n${shareMessagesEnd}`
   ];
     
     const randomShareMessage = this.getRandomMessage(shareMessages);
     const personalizedMessage = randomShareMessage.replace('{name}', this.playerName);
     
+    // Get the appropriate URL for sharing based on GIF type
+    let shareUrl;
+    if (this.currentGif.type === 'giphy') {
+      shareUrl = this.currentGif.url;
+    } else if (this.currentGif.type === 'tenor') {
+      shareUrl = this.currentGif.url;
+    } else {
+      shareUrl = window.location.href;
+    }
+    
     // Enhanced LinkedIn sharing with Microsoft branding
-    // const url = encodeURIComponent(window.location.href);
-    const url = encodeURIComponent(this.currentGif.url);
+    const url = encodeURIComponent(shareUrl);
     const text = encodeURIComponent(personalizedMessage);
-    const shareUrl = `https://www.linkedin.com/feed/?shareActive=true&shareUrl=${url}&title=${encodeURIComponent('Independence Day 2025 - Freedom to Innovate | Microsoft India')}&text=${text}`;
+    const linkedInUrl = `https://www.linkedin.com/feed/?shareActive=true&shareUrl=${url}&title=${encodeURIComponent('Independence Day 2025 - Freedom to Innovate | Microsoft India')}&text=${text}`;
     
     // Enhanced share dialog with Microsoft narrative
     const confirmShare = confirm(
@@ -414,7 +497,7 @@ class IndependenceDayExperience {
     );
     
     if (confirmShare) {
-      window.open(shareUrl, '_blank', 'width=600,height=600');
+      window.open(linkedInUrl, '_blank', 'width=600,height=600');
     }
   }
   
