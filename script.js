@@ -18,10 +18,6 @@ class IndependenceDayExperience {
         caption: 'Happy Independence Day'
       },
       {
-        url: 'https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjloeGJudG1sOW1xZ3p4ZGF1aHFnYTJvN2pra3B0aWdpaXdqa3dqNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o6wrAGrygEMdv5zdC/giphy.gif',
-        caption: 'Indian Independence Day Celebration'
-      },
-      {
         url: 'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnpyYjBtOTBuN2F6ZWExMXk2OHF5YjBsdHJpcnRiNmEwZTc5d2VqYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/v0ZIXeZgWwL2tgPA5A/giphy.gif',
         caption: 'Proud to be Indian'
       },
