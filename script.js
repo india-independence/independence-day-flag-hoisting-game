@@ -24,10 +24,6 @@ class IndependenceDayExperience {
       {
         url: 'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHQ0OHBpMmt2eTF4YmJ2cnVqMXBwbjNqN2J1d3RoY3dlcDJqYjJ2cyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fx0fyZlGSSkr8qWtG3/giphy.gif',
         caption: 'Independence Day Celebration'
-      },
-      {
-        url: 'https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHduNXRmZGJjbTJ0NzJwZTB2YTc4NnFldGk5cHN3MzB2M3FyaG91NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/QsgF8ZcGwwZjUOJf3d/giphy.gif',
-        caption: 'Proud Indian'
       }
     ];
     
