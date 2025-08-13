@@ -455,7 +455,7 @@ class IndependenceDayExperience {
   }
   
   shareExperience() {
-    const shareMessagesEnd = "Feel free to invite your friends to celebrate by clicking here https://aka.ms/FlagHoistGame\n\n#IndependenceDay2025 #FreedomToInnovate #VibeCoding";
+    const shareMessagesEnd = "Feel free to invite your friends to celebrate by clicking here https://aka.ms/FlagHoistGame\n\n#IndependenceDay2025 #FreedomtoInnovatewithMicrosoft #VibeCoding";
     // Updated sharing messages for Independence Day celebration
     const shareMessages = [
     `✨ Wishing all Indians a very "Happy Independence Day" and personally this year I am celebrating the freedom to think big. \n\n${shareMessagesEnd}`,
