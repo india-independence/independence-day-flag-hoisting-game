@@ -493,7 +493,7 @@ class IndependenceDayExperience {
     
     // Enhanced share dialog with Microsoft narrative
     const confirmShare = confirm(
-      `Share your Independence Day celebration on LinkedIn:\n\n"${personalizedMessage}"\n\n\nClick OK to continue to LinkedIn.`
+      `Share your Independence Day celebration on LinkedIn:\n\n${personalizedMessage}\n\n\nClick OK to continue to LinkedIn.`
     );
     
     if (confirmShare) {
